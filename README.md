@@ -6,8 +6,67 @@ A comprehensive web application for tracking personal finances across multiple a
 
 - Frontend: [TaskForce Wallet](https://taskforce-wallet.vercel.app)
 - Backend API:
-  - Primary: [Render](https://wallet-app-c2zf.onrender.com)
+  - Primary: [Render](https://wallet-jxd5.onrender.com)
   - Secondary: [AWS EC2](http://ec2-13-60-163-227.eu-north-1.compute.amazonaws.com)
+
+## 🔑 Getting Started with the App
+
+1. **Create an Account**
+   - Visit [TaskForce Wallet](https://taskforce-wallet.vercel.app)
+   - Click "Register" or "Sign Up"
+   - Enter your desired username and password
+   - Complete registration
+2. **Log In**
+
+   - Use your registered credentials to log in
+   - Access your personalized dashboard
+
+3. **Set Up Your Accounts**
+
+   - Add your different financial accounts (bank, mobile money, cash)
+   - Set initial balances
+   - Customize account names and types
+
+4. **Start Managing Your Finances**
+   - Record transactions
+   - Set budgets
+   - Track expenses by category
+   - View financial reports
+
+## 💡 Key Features & Usage
+
+### Account Management
+
+- Add multiple accounts with different types (bank, mobile money, cash)
+- View balance for each account
+- Track account-specific transactions
+
+### Transaction Tracking
+
+- Record income and expenses
+- Add transaction details (date, amount, category)
+- View transaction history
+
+### Budget Control
+
+- Set monthly or custom period budgets
+- Get notifications for budget limits
+- Track budget vs. actual spending
+- View budget performance reports
+
+### Expense Categories
+
+- Create custom categories and subcategories
+- Organize transactions by category
+- View spending patterns by category
+- Edit or merge categories
+
+### Reports & Analytics
+
+- Generate detailed financial reports
+- View spending trends
+- Analyze income vs. expenses
+- Export reports for personal records
 
 ## ✨ Features
 
@@ -52,7 +111,7 @@ Before running this project, make sure you have:
 - npm or yarn package manager
 - Git
 
-## 🚀 Getting Started
+## 🚀 Development Setup
 
 1. **Clone the repository**
 
@@ -101,11 +160,19 @@ Before running this project, make sure you have:
 src/
 ├── assets/         # Static assets
 ├── components/     # Reusable UI components
-├── pages/          # Application pages/routes
-├── layout/         # API integration services
+├── pages/          # Application pages
 ├── store           # State management
-├── slices/         # slice to handle backend request api
+├── slices          # api request file are here
+└── utils/          # Helper functions and utilities
 ```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## 👨‍💻 Author
 
