@@ -31,7 +31,7 @@ const Reports = () => {
       };
 
       const response = await fetch(
-        `/api/transactions/account/${userInfo.userId}?startDate=${dateRange.startDate}T00:00:00&endDate=${dateRange.endDate}T23:59:59`,
+        `${import.meta.env.VITE_API_URL}/api/transactions/account/${userInfo.userId}?startDate=${dateRange.startDate}T00:00:00&endDate=${dateRange.endDate}T23:59:59`,
         {
           method: 'GET',
           headers,

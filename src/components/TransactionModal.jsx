@@ -40,7 +40,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
         };
 
         const [accountsRes, categoriesRes] = await Promise.all([
-          fetch(`/api/accounts/user/${userInfo.userId}`, { method: 'GET', headers }),
+          fetch(`${import.meta.env.VITE_API_URL}/api/accounts/user/${userInfo.userId}`, { method: 'GET', headers }),
           fetch('/api/categories', { method: 'GET', headers })
         ]);
         

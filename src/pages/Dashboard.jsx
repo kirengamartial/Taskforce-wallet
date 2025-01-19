@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { LineChart, XAxis, YAxis, Tooltip, Line, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend } from 'recharts';
-import { PlusCircle, ArrowUpCircle, ArrowDownCircle, Wallet } from 'lucide-react';
+import { XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend } from 'recharts';
+import { PlusCircle, Wallet } from 'lucide-react';
 import TransactionModal from '../components/TransactionModal';
 import AccountModal from '../components/AccountModal';
 import { useSelector } from 'react-redux';
@@ -38,7 +38,7 @@ const Dashboard = () => {
 
       // Fetch transactions with auth
       const transactionsResponse = await fetch(
-        `/api/transactions/account/${userInfo.userId}?startDate=${formatDate(dateRange.startDate)}&endDate=${formatDate(dateRange.endDate)}`,
+        `${import.meta.env.VITE_API_URL}/api/transactions/account/${userInfo.userId}?startDate=${formatDate(dateRange.startDate)}&endDate=${formatDate(dateRange.endDate)}`,
         {
           method: 'GET',
           headers,
@@ -54,7 +54,7 @@ const Dashboard = () => {
       
       // Fetch accounts with auth
       const accountsResponse = await fetch(
-        `/api/accounts/user/${userInfo.userId}`,
+        `${import.meta.env.VITE_API_URL}/api/accounts/user/${userInfo.userId}`,
         {
           method: 'GET',
           headers,

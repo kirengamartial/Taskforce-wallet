@@ -17,7 +17,7 @@ const NotificationPopup = () => {
         'Authorization': `Bearer ${userInfo.accessToken}`,
       };
 
-      const response = await fetch(`/api/notifications/${userInfo.userId}`, 
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/notifications/${userInfo.userId}`, 
         {
           method: 'GET',
           headers,

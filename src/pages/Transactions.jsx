@@ -27,7 +27,7 @@ const Transactions = () => {
       };
 
       const response = await fetch(
-        `/api/transactions/account/${userInfo.userId}?startDate=${formatDate(dateRange.startDate)}&endDate=${formatDate(dateRange.endDate)}`,
+        `${import.meta.env.VITE_API_URL}/api/transactions/account/${userInfo.userId}?startDate=${formatDate(dateRange.startDate)}&endDate=${formatDate(dateRange.endDate)}`,
         {
           method: 'GET',
           headers,

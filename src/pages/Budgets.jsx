@@ -21,7 +21,7 @@ const Budgets = () => {
         'Authorization': `Bearer ${userInfo.accessToken}`,
       };
 
-      const response = await fetch(`/api/budgets/user/${userInfo.userId}`,
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/budgets/user/${userInfo.userId}`,
         {
           method: 'GET',
           headers,

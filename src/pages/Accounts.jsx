@@ -32,7 +32,7 @@ const Accounts = () => {
         'Authorization': `Bearer ${userInfo.accessToken}`,
       };
 
-      const response = await fetch(`/api/accounts/user/${userInfo.userId}`, 
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/accounts/user/${userInfo.userId}`, 
         {
           method: 'GET',
           headers,
