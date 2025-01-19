@@ -102,10 +102,9 @@ src/
 ├── assets/         # Static assets
 ├── components/     # Reusable UI components
 ├── pages/          # Application pages/routes
-├── services/       # API integration services
-├── store/          # State management
-├── styles/         # Global styles and Tailwind config
-└── utils/          # Helper functions and utilities
+├── layout/         # API integration services
+├── store           # State management
+├── slices/         # slice to handle backend request api
 ```
 
 ## 👨‍💻 Author
