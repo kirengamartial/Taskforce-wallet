@@ -6,7 +6,7 @@ A comprehensive web application for tracking personal finances across multiple a
 
 - Frontend: [TaskForce Wallet](https://taskforce-wallet.vercel.app)
 - Backend API:
-  - Primary: [Render](https://wallet-gcxn.onrender.com)
+  - Primary: [Render](https://taskforce-wallet-bn.onrender.com)
   - Secondary: [AWS EC2](http://ec2-13-60-163-227.eu-north-1.compute.amazonaws.com)
 
 ## 🔑 Getting Started with the App
