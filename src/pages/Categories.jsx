@@ -19,7 +19,7 @@ const Categories = () => {
         'Authorization': `Bearer ${userInfo.accessToken}`,
       };
 
-      const response = await fetch('/api/categories', 
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`, 
         {
           method: 'GET',
           headers,

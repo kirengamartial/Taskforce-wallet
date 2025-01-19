@@ -16,7 +16,7 @@ const CategoryModal = ({ isOpen, onClose, onSuccess }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch('/api/categories', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

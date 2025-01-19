@@ -19,7 +19,7 @@ const AccountModal = ({ isOpen, onClose, onSuccess }) => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/accounts', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/accounts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

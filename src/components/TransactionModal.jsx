@@ -41,7 +41,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
 
         const [accountsRes, categoriesRes] = await Promise.all([
           fetch(`${import.meta.env.VITE_API_URL}/api/accounts/user/${userInfo.userId}`, { method: 'GET', headers }),
-          fetch('/api/categories', { method: 'GET', headers })
+          fetch(`${import.meta.env.VITE_API_URL}/api/categories`, { method: 'GET', headers })
         ]);
         
         if (!accountsRes.ok || !categoriesRes.ok) {
@@ -66,7 +66,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch('/api/transactions', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/transactions`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -79,7 +79,7 @@ const TransactionModal = ({ isOpen, onClose, onSuccess }) => {
       
       if (!response.ok) {
         if (response.status === 400 && data.message) {
-          await fetch('/api/notifications', {
+          await fetch(`${import.meta.env.VITE_API_URL}/api/notifications`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
