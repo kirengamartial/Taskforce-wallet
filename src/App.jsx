@@ -15,6 +15,7 @@ import Accounts from './pages/Accounts';
 import Transactions from './pages/Transactions';
 import ProtectedRoutes from './layout/ProtectedRoutes';
 
+
 function App() {
   return (
     <Provider store={store}> 
