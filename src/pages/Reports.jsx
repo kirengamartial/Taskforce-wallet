@@ -15,7 +15,7 @@ import {
 
 const Reports = () => {
   const [dateRange, setDateRange] = useState({
-    startDate: new Date().toISOString().slice(0, 10),
+    startDate: new Date(new Date().setMonth(new Date().getMonth() - 1)).toISOString().slice(0, 10),
     endDate: new Date().toISOString().slice(0, 10),
   });
   const [reportData, setReportData] = useState(null);

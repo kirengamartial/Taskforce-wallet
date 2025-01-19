@@ -1,19 +1,12 @@
 import React from 'react';
 import { Menu } from 'lucide-react';
 import NotificationPopup from './NotificationPopUp';
-import { useSelector, useDispatch } from 'react-redux';
-import { logOut } from '../slices/userSlices/authSlice';
-import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
-  const { userInfo } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    dispatch(logOut());
-    navigate('/login');
-  };
+  const {userInfo} = useSelector(state => state.auth)
+
 
   return (
     <header className="bg-white shadow-sm">
@@ -28,12 +21,7 @@ const Navbar = ({ sidebarOpen, setSidebarOpen }) => {
           <NotificationPopup />
           <div className="flex items-center space-x-2">
             <span className="text-gray-700">{userInfo.username}</span>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2 text-sm text-white bg-red-600 rounded-md hover:bg-red-700"
-            >
-              Logout
-            </button>
+        
           </div>
         </div>
       </div>
