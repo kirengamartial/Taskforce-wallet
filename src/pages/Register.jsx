@@ -7,7 +7,6 @@ import { User, Mail, Lock } from 'lucide-react';
 
 const Register = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const [register, { isLoading }] = useRegisterMutation();
 
   const [formData, setFormData] = useState({
@@ -19,11 +18,17 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await register(formData).unwrap();
-      toast.success('Registration successful');
+      const data = { 
+        username: formData.username,
+        password: formData.password
+      }
+      const result = await register(data).unwrap();
+      toast.success(result.message || 'Registration successful');
       navigate('/login');
     } catch (error) {
-      toast.error(error?.data?.message || error.message || 'An error occurred');
+      const errorMessage = error?.data?.message || error?.data || error.message || 'An error occurred';
+      toast.error(errorMessage);
+      console.log(error);
     }
   };
 
