@@ -3,6 +3,7 @@
 A comprehensive web application for tracking personal finances across multiple accounts, built with React + Vite and integrated with a Spring Boot backend.
 
 ![Wallet Dashboard](./public/wallet.png)
+![Wallet Dashboard](./public/login_wallet.png)
 
 
 ## 🚀 Live Demo
