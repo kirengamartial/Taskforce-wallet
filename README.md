@@ -13,6 +13,10 @@ A comprehensive web application for tracking personal finances across multiple a
   - Primary: [Render](https://taskforce-wallet-bn.onrender.com)
   - Secondary: [AWS EC2](http://ec2-13-60-163-227.eu-north-1.compute.amazonaws.com)
 
+## 🔗 Backend Repository
+
+- Backend Repository(Spring boot API): [Taskforce-wallet-bn](https://github.com/kirengamartial/Taskforce-wallet-bn)
+
 ## 🔑 Getting Started with the App
 
 1. **Create an Account**
@@ -154,9 +158,6 @@ Before running this project, make sure you have:
    yarn build
    ```
 
-## 🔗 Related Repositories
-
-- Backend Repository: [Taskforce-wallet-bn](https://github.com/kirengamartial/Taskforce-wallet-bn)
 
 ## 📱 Application Structure
 
