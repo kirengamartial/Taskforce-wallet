@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useLoginMutation } from '../slices/userSlices/userApiSlice';
 import { getCredentials } from '../slices/userSlices/authSlice';
 import { toast } from 'react-toastify';
-import { User, Lock } from 'lucide-react';
+import { User, Lock, Loader, Info } from 'lucide-react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,12 +28,29 @@ const Login = () => {
     }
   };
 
+  const getLoadingMessage = () => {
+    if (!isLoading) return 'Sign in';
+    
+    return (
+      <div className="flex items-center justify-center space-x-2">
+        <Loader className="h-4 w-4 animate-spin" />
+        <span>Securely signing you in...</span>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="max-w-md w-full space-y-8 bg-white rounded-xl shadow-lg p-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900">Welcome Back</h2>
           <p className="mt-2 text-sm text-gray-600">Please sign in to your account</p>
+          <div className="mt-3 flex items-center justify-center gap-2 bg-blue-50 p-3 rounded-lg">
+            <Info className="h-5 w-5 text-blue-500 flex-shrink-0" />
+            <p className="text-sm text-blue-700">
+              First login may take up to 50 seconds while our Render server wakes up.
+            </p>
+          </div>
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
@@ -53,6 +70,7 @@ const Login = () => {
                   onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                   className="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Enter your username"
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -72,6 +90,7 @@ const Login = () => {
                   onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   className="pl-10 w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   placeholder="Enter your password"
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -80,9 +99,9 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+            className="w-full py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200 disabled:bg-blue-400 disabled:cursor-not-allowed min-h-[48px]"
           >
-            {isLoading ? 'Signing in...' : 'Sign in'}
+            {getLoadingMessage()}
           </button>
         </form>
 
