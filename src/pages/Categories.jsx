@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PlusCircle, ChevronRight, Menu } from 'lucide-react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { PlusCircle, ChevronRight } from 'lucide-react';
 import CategoryModal from '../components/CategoryModal';
 import SubCategoryModal from '../components/SubCategoryModal';
 import { useSelector } from 'react-redux';
@@ -49,63 +43,37 @@ const Categories = () => {
     return acc;
   }, {});
 
-  // Action buttons for different screen sizes
-  const ActionButtons = () => (
-    <>
-      {/* Desktop/Tablet View */}
-      <div className="hidden sm:flex gap-4">
-        <button
-          onClick={() => setShowModal(true)}
-          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-        >
-          <PlusCircle className="h-5 w-5 mr-2" />
-          Add Category
-        </button>
-        <button
-          onClick={() => setShowModalSub(true)}
-          className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
-        >
-          <PlusCircle className="h-5 w-5 mr-2" />
-          Add SubCategory
-        </button>
-      </div>
-
-      {/* Mobile View */}
-      <div className="sm:hidden">
-        <DropdownMenu>
-          <DropdownMenuTrigger className="inline-flex items-center px-3 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">
-            <Menu className="h-5 w-5" />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="w-48">
-            <DropdownMenuItem onClick={() => setShowModal(true)}>
-              <PlusCircle className="h-4 w-4 mr-2" />
-              Add Category
-            </DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setShowModalSub(true)}>
-              <PlusCircle className="h-4 w-4 mr-2" />
-              Add SubCategory
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      </div>
-    </>
-  );
-
   return (
-    <div className="space-y-6 p-4 sm:p-6">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">Categories</h1>
-        <ActionButtons />
+    <div className="space-y-6 p-6">
+      <div className="flex flex-col sm:flex-row justify-between gap-4 sm:items-center mb-8">
+        <h1 className="text-2xl font-semibold text-gray-900">Categories</h1>
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:gap-4">
+          <button
+            onClick={() => setShowModal(true)}
+            className="inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition-colors"
+          >
+            <PlusCircle className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
+            <span>Add Category</span>
+          </button>
+
+          <button
+            onClick={() => setShowModalSub(true)}
+            className="inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-green-600 text-white text-sm rounded-md hover:bg-green-700 transition-colors"
+          >
+            <PlusCircle className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2" />
+            <span>Add SubCategory</span>
+          </button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 gap-6">
         {Object.values(organizedCategories).map((category) => (
           <div 
             key={category.id} 
             className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
           >
-            <div className="p-3 sm:p-4 bg-gray-50 border-b border-gray-200">
-              <h3 className="text-base sm:text-lg font-medium text-gray-900">
+            <div className="p-4 bg-gray-50 border-b border-gray-200">
+              <h3 className="text-lg font-medium text-gray-900">
                 {category.name}
               </h3>
             </div>
@@ -115,7 +83,7 @@ const Categories = () => {
                 {category.children.map((subCategory) => (
                   <div 
                     key={subCategory.id}
-                    className="p-3 sm:p-4 pl-6 sm:pl-8 flex items-center hover:bg-gray-50 transition-colors"
+                    className="p-4 pl-8 flex items-center hover:bg-gray-50 transition-colors"
                   >
                     <ChevronRight className="h-4 w-4 text-gray-400 mr-2" />
                     <div>
@@ -130,7 +98,7 @@ const Categories = () => {
                 ))}
               </div>
             ) : (
-              <div className="p-3 sm:p-4 text-sm text-gray-500 italic">
+              <div className="p-4 text-sm text-gray-500 italic">
                 No subcategories
               </div>
             )}
